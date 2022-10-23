@@ -20,6 +20,7 @@ from scalene.scalene_leak_analysis import ScaleneLeakAnalysis
 from scalene.scalene_statistics import Filename, LineNumber, ScaleneStatistics
 from scalene.syntaxline import SyntaxLine
 
+from icecream import ic
 
 class ScaleneOutput:
 
@@ -530,6 +531,7 @@ class ScaleneOutput:
                 continue
             # Print out the profile for the source, line by line.
             full_fname = os.path.normpath(os.path.join(program_path, fname))
+            ic(program_path, fname, full_fname)
             with open(full_fname, "r", encoding="utf-8") as source_file:
                 # We track whether we should put in ellipsis (for reduced profiles)
                 # or not.
